@@ -3,6 +3,10 @@
 	Matheus Farias de Oliveira Matsumoto - 32138271
 	Código em Inglês
 	Comentários em Portugês-BR
+
+	Referências:
+	https://stackoverflow.com/questions/59458264/exception-thrown-read-access-violation-it-was-0xffffffffffffffff
+	https://www.w3schools.com/cpp/cpp_strings.asp
 */
 #include <iostream>
 #include <clocale>
