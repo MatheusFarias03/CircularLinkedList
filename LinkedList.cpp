@@ -149,19 +149,22 @@ int LinkedList::Count() {
 }
 
 bool LinkedList::IsEmpty() {
-	if (head == nullptr)
+	if (head == nullptr || count == 0)
 		return true;
 	else
-		false;
+		return false;
 }
 
 void LinkedList::Clear() {
 	Node* next = nullptr;
 
-	while (head != nullptr) {
+	while (count != 0) {
 		next = head->next;
+		head->previous = nullptr;
+		head->next = nullptr;
 		delete head; // Parte importante para liberar espaço na memória
 		head = next;
+		count--;
 	}
 
 	head, tail = nullptr;

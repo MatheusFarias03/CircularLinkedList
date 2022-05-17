@@ -11,31 +11,35 @@ using namespace std;
 
 void Print(LinkedList& list)
 {
+	int aux = 0;
 	Node* current = list.GetHead();
-	while (current->next != list.GetHead()) {
-		cout << "[" << current->id << "]" << " " << current->name;
+	while (aux != list.Count()) {
+		cout << "[" << current->id << "]" << " " << current->name << "\n";
 		current = current->next;
+		aux++;
 	}
 }
 void PrintReverse(LinkedList& list)
 {
+	int aux = 0;
 	Node* current = list.GetTail();
-	while (current->next != list.GetTail()) {
-		cout << "[" << current->id << "]" << " " << current->name;
+	while (aux != list.Count()) {
+		cout << "[" << current->id << "]" << " " << current->name << "\n";
 		current = current->previous;
+		aux++;
 	}
 }
 void PrintDoubleListInfo(LinkedList list)
 {
-	if (list.IsEmpty())
+	if (list.IsEmpty() == true)
 	{
 		cout << "Lista vazia!\n";
 	}
 	else
 	{
-		cout << "Lista:\n";
+		cout << "\nLista:\n";
 		Print(list);
-		cout << "Lista invertida:\n";
+		cout << "\nLista invertida:\n";
 		PrintReverse(list);
 	}
 }
@@ -65,16 +69,12 @@ int main()
 	PrintDoubleListInfo(list);
 	Node* temp = list.RemoveNode(44);
 	cout << "Nó removido -> id: " << temp->id << ", name: " << temp->name << '\n';
-	// TODO: Liberar memória alocada para o nó que foi removido.
 	PrintDoubleListInfo(list);
 	temp = list.RemoveHead();
 	cout << "Nó removido -> id: " << temp->id << ", name: " << temp->name << '\n';
-	// TODO: Liberar memória alocada para o nó que foi removido.
 	PrintDoubleListInfo(list);
 	temp = list.RemoveTail();
 	cout << "Nó removido -> id: " << temp->id << ", name: " << temp->name << '\n';
-	// TODO: Liberar memória alocada para o nó que foi removido.
 	PrintDoubleListInfo(list);
-	// TODO: Liberar memória alocada para a lista.
-	cout << "Fim.\n";
+	cout << "\nFim.\n";
 }
