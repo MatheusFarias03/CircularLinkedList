@@ -101,11 +101,11 @@ Node* LinkedList::RemoveTail() {
 	return toRemove;
 }
 
-Node* LinkedList::RemoveNode(int elem, std::string word) {
+Node* LinkedList::RemoveNode(int elem) {
 
 	Node* toRemove = head;
 
-	while (toRemove->next != head && toRemove->id != elem && toRemove->name != word) {
+	while (toRemove->next != head && toRemove->id != elem) {
 		toRemove = toRemove->next;
 	}
 
@@ -149,7 +149,7 @@ int LinkedList::Count() {
 }
 
 bool LinkedList::isEmpty() {
-	if (head == nullptr)
+	if (head == nullptr || count == 0)
 		return true;
 	else
 		false;
@@ -158,12 +158,16 @@ bool LinkedList::isEmpty() {
 void LinkedList::Clear() {
 	Node* next = nullptr;
 
-	while (head != nullptr) {
+	while (count != 0) {
 		next = head->next;
+		head->prev = nullptr;
+		head->next = nullptr;
 		delete head; // Parte importante para liberar espaço na memória
 		head = next;
+		count--;
 	}
 
 	head, tail = nullptr;
 	count = 0;
 }
+

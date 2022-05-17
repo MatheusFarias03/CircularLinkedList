@@ -6,6 +6,7 @@
 
 #ifndef __H_CIRCULAR_LINKED_LIST__
 #define __H_CIRCULAR_LINKED_LIST__
+#include <string>
 
 class Node {
 public:
@@ -28,7 +29,7 @@ public:
 
 	Node* RemoveHead();
 	Node* RemoveTail();
-	Node* RemoveNode(int elem, std::string word);
+	Node* RemoveNode(int elem);
 
 	Node* GetHead();
 	Node* GetTail();
